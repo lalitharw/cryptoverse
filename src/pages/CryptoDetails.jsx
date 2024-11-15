@@ -159,7 +159,7 @@ export const CryptoDetails = () => {
                 <div className="d-flex">
                   <p className="fw-bold text-black-50" >
 
-                    <Link className="text-black-50" to={`${link.url}`}>{link.name}</Link>
+                    <Link target="_blank" className="text-black-50" to={`${link.url}`}>{link.name}</Link>
                   </p>
                 </div>
               </>
