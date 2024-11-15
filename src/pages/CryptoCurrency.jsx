@@ -31,7 +31,7 @@ export const CryptoCurrency = ({simplified}) => {
         <h1>Crypto Currency</h1>
         {coins?.map((coin) => (
             <>
-            <Link to={``} >
+            <Link to={`crypto-details/${coin.uuid}`} >
             <p key={coin.uuid}>{coin.name} <img src={coin.iconUrl} width={30}/></p>
             </Link>
             </>
