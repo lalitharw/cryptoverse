@@ -20,8 +20,8 @@ function App() {
     
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path='/crypto-currencies' element={<CryptoCurrency/>}/>
-        <Route path='/crypto-details/:coinId' element={<CryptoDetails/>}/>
+        <Route path='crypto-currencies' element={<CryptoCurrency/>}/>
+        <Route path='crypto-details/:coinId' element={<CryptoDetails/>}/>
         
       </Routes>
     </>

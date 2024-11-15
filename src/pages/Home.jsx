@@ -31,7 +31,7 @@ export const Home = () => {
     );
 
   return (
-    <div className="container-fluid bg-black-50">
+    <div className="container-fluid">
       <div className=" d-flex justify-content-center gap-5 p-5">
         <div className="shadow rounded p-3">
           <FaCoins style={{ fontSize: 30, marginBottom: 10 }} />

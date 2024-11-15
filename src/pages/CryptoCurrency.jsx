@@ -38,20 +38,25 @@ export const CryptoCurrency = ({ simplified }) => {
   return (
     <div>
       {!simplified && (
+        <>
+        <div className="row col-3 m-2">
         <input
           type="text"
-          className="form-control col-6"
+          className="form-control"
           placeholder="Search CryptoCoin"
           name=""
           id=""
           onChange={(e) => setSearch(e.target.value)}
         />
+        </div>
+        <h2 className="fw-bold text-center mb-4">Crypto Coins</h2>
+        </>
       )}
       <div className="row">
         {coins?.map((coin) => (
           <>
             <div className="col-lg-3 col-md-4">
-              <Link className="text-decoration-none" to={`crypto-details/${coin.uuid}`}>
+              <Link className="text-decoration-none" to={`/crypto-details/${coin.uuid}`}>
                 <CardComponent coin={coin} />
               </Link>
             </div>

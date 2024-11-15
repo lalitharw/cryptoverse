@@ -1,7 +1,12 @@
+
+// rtk query
+import { useGetCoinDetailsQuery } from "../app/Crypto/CryptoApi"
+
+// react router dom
 import { useParams } from "react-router-dom"
 
-
-import { useGetCoinDetailsQuery } from "../app/Crypto/CryptoApi"
+// components
+import { LoaderComponent } from "../components/LoaderComponent";
 
 export const CryptoDetails = () => {
 
@@ -16,9 +21,9 @@ export const CryptoDetails = () => {
     // console.log(data?.data?.coin)
 
 
-    if(isLoading) return (<p>
-    <p>Loading.. Please Wait</p>
-    </p>)
+    if(isLoading) return (<>
+    <LoaderComponent/>
+    </>)
 
     return (
         <>
