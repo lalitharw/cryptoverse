@@ -3,6 +3,7 @@ import { useState,useEffect } from "react"
 
 // react router dom
 import { Link } from "react-router-dom"
+import { Card } from "../components/Card"
 
 export const CryptoCurrency = ({simplified}) => {
 
@@ -27,6 +28,7 @@ export const CryptoCurrency = ({simplified}) => {
 
     return (
         <>
+        <Card/>
         <input type="text" name="" id="" onChange={(e) => setSearch(e.target.value)} />
         <h1>Crypto Currency</h1>
         {coins?.map((coin) => (
