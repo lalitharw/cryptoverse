@@ -11,6 +11,7 @@ import HTMLReactParser from "html-react-parser/lib/index";
 
 // components
 import { LoaderComponent } from "../components/LoaderComponent";
+import { LineChartComponent } from "../components/LineChartComponent";
 
 // react icons
 import { FaHashtag } from "react-icons/fa";
@@ -51,6 +52,10 @@ export const CryptoDetails = () => {
           {coin.name} live price in US dollars. View value statistics, market
           cap and supply
         </p>
+        <hr />
+
+        <LineChartComponent/>
+
         <hr />
 
         <div className="row mt-5 d-flex justify-content-around ">
@@ -151,7 +156,7 @@ export const CryptoDetails = () => {
               <>
                 <div className="d-flex">
                   <p className="fw-bold text-black-50" >
-                    
+
                     <Link className="text-black-50" to={`${link.url}`}>{link.name}</Link>
                   </p>
                 </div>
