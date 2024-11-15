@@ -8,6 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 // components
 import { CryptoCurrency } from "./CryptoCurrency";
+import { LoaderComponent } from "../components/LoaderComponent";
 
 export const Home = () => {
   const { data, error, isLoading } = useGetCoinsStatsQuery();
@@ -18,7 +19,7 @@ export const Home = () => {
   if (isLoading)
     return (
       <>
-        <div className=" d-flex justify-content-center align-items-center " style={{height:"100vh"}}><Spinner/></div>
+        <LoaderComponent/>
       </>
     );
 
