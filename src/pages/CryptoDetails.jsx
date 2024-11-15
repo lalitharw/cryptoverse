@@ -146,7 +146,7 @@ export const CryptoDetails = () => {
           </h4>
           <p className="text-center">
             {/* htmlreactparser should not be null */}
-            {HTMLReactParser(coin.description || "")}{" "}
+            {HTMLReactParser(coin.description || "")}
           </p>
         </div>
         <hr />
