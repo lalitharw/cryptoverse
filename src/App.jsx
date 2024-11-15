@@ -8,6 +8,9 @@ import {Home} from "./pages/Home"
 import { CryptoCurrency } from './pages/CryptoCurrency';
 import {CryptoDetails} from "./pages/CryptoDetails"
 
+// react bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 function App() {

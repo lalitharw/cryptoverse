@@ -3,7 +3,7 @@ import { useState,useEffect } from "react"
 
 // react router dom
 import { Link } from "react-router-dom"
-import { Card } from "../components/Card"
+import { CardComponent } from "../components/CardComponent"
 
 export const CryptoCurrency = ({simplified}) => {
 
@@ -27,17 +27,24 @@ export const CryptoCurrency = ({simplified}) => {
     </>)
 
     return (
-        <>
-        <Card/>
-        <input type="text" name="" id="" onChange={(e) => setSearch(e.target.value)} />
-        <h1>Crypto Currency</h1>
+        <div className="container-fluid">
+        {
+            !simplified &&
+        <input type="text" className="form-control col-6" placeholder="Search CryptoCoin" name="" id="" onChange={(e) => setSearch(e.target.value)} />
+        }
+        <h2 className="fw-bold text-black">Crypto Currency</h2>
+        <div className="row">
         {coins?.map((coin) => (
             <>
+        <div className="col-lg-4">
             <Link to={`crypto-details/${coin.uuid}`} >
-            <p key={coin.uuid}>{coin.name} <img src={coin.iconUrl} width={30}/></p>
+            {/* <p key={coin.uuid}>{coin.name} <img src={coin.iconUrl} width={30}/></p> */}
+            <CardComponent coin={coin}/>
             </Link>
+        </div>
             </>
         ))}
-        </>
+        </div>
+        </div>
     )
 }
