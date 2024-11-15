@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 
 // third party
 import millify from "millify";
+
+
 import HTMLReactParser from "html-react-parser/lib/index";
 
 // components
@@ -143,7 +145,7 @@ export const CryptoDetails = () => {
             What is {coin.name}?
           </h4>
           <p className="text-center">
-            {" "}
+            {/* htmlreactparser should not be null */}
             {HTMLReactParser(coin.description || "")}{" "}
           </p>
         </div>
