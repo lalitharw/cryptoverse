@@ -1,12 +1,15 @@
 import { createApi,fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+const apiUrl = import.meta.env.VITE_RAPID_CRYPTO_API
+const apiKey = import.meta.env.VITE_RAPID_KEY
+const apiHost = import.meta.env.VITE_RAPID_HOST
 
 export const CryptoApi = createApi({
     reducerPath:"crypto-api",
-    baseQuery:fetchBaseQuery({baseUrl:"https://coinranking1.p.rapidapi.com",
+    baseQuery:fetchBaseQuery({baseUrl:apiUrl,
         prepareHeaders: (headers) => {
-            headers.set("x-rapidapi-key","715f7ada66msh8fdaffc877489ebp198450jsn27c89ad56a83"),
-            headers.set("x-rapidapi-host","coinranking1.p.rapidapi.com")
+            headers.set("x-rapidapi-key",apiKey),
+            headers.set("x-rapidapi-host",apiHost)
         }
     },
         
