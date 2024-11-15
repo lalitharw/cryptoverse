@@ -1,9 +1,15 @@
-import { useGetCoinsQuery } from "../app/Crypto/CryptoApi";
 import { useState, useEffect } from "react";
+
+// rtk query
+import { useGetCoinsQuery } from "../app/Crypto/CryptoApi";
+
 
 // react router dom
 import { Link } from "react-router-dom";
+
+// components
 import { CardComponent } from "../components/CardComponent";
+import { LoaderComponent } from "../components/LoaderComponent";
 
 export const CryptoCurrency = ({ simplified }) => {
   const count = simplified ? 10 : 100;
@@ -13,10 +19,9 @@ export const CryptoCurrency = ({ simplified }) => {
   const [coins, setCoins] = useState(data?.data?.coins);
   const [search, setSearch] = useState("");
 
-  // console.log(coins)
+
 
   useEffect(() => {
-    // setCoins(data?.data?.coins)
     const filterData = data?.data?.coins.filter((coin) =>
       coin.name.toLowerCase().includes(search.toLowerCase())
     );
@@ -26,7 +31,7 @@ export const CryptoCurrency = ({ simplified }) => {
   if (isLoading)
     return (
       <>
-        <p>Loading.. Please Wait</p>
+        <LoaderComponent/>
       </>
     );
 
@@ -42,11 +47,10 @@ export const CryptoCurrency = ({ simplified }) => {
           onChange={(e) => setSearch(e.target.value)}
         />
       )}
-      <h2 className="fw-bold text-black">Crypto Currency</h2>
       <div className="row">
         {coins?.map((coin) => (
           <>
-            <div className="col-lg-4">
+            <div className="col-lg-3 col-md-4">
               <Link className="text-decoration-none" to={`crypto-details/${coin.uuid}`}>
                 <CardComponent coin={coin} />
               </Link>
