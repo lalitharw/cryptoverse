@@ -1,5 +1,5 @@
 // rtk query
-import { useGetCoinDetailsQuery } from "../app/Crypto/CryptoApi";
+import { useGetCoinDetailsQuery, useGetCryptoHistoryQuery } from "../app/Crypto/CryptoApi";
 
 // react router dom
 import { useParams } from "react-router-dom";
@@ -27,9 +27,13 @@ import { useState, useEffect } from "react";
 
 export const CryptoDetails = () => {
   const [coin, setCoin] = useState({});
+  const [timeperiod, setCryptoTimePeriod] = useState('3h')
   const { coinId } = useParams();
 
+  const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
+
   const { data, error, isLoading } = useGetCoinDetailsQuery(coinId);
+  const { data: coinHistory, isErrorrror, isLoading: coinHistoryIsLoading } = useGetCryptoHistoryQuery({ coinId, timeperiod })
 
   useEffect(() => {
     if (data && data.data && data.data.coin) {
@@ -55,8 +59,19 @@ export const CryptoDetails = () => {
           cap and supply
         </p>
         <hr />
+        <div className="col-3">
+          <label htmlFor="" className="mb-2">Select Range:</label>
+          <select className="form-select" onChange={(e) => setCryptoTimePeriod(e.target.value)}>
 
-        <LineChartComponent/>
+            {
+              time.map((date) => (
+                <option key={date} value={date}>{date}</option>
+
+              ))
+            }
+          </select>
+        </div>
+        <LineChartComponent coinName={coin.name} coinPrice={millify(coin.price)} coinHistory={coinHistory} />
 
         <hr />
 
